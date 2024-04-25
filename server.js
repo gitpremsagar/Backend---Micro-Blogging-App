@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
+const cors = require("cors");
 
 mongoose.connect(process.env.MONGO_DB_URI);
 
@@ -17,6 +18,8 @@ mongoose.connection.on("error", (err) => {
 mongoose.connection.on("disconnected", () => {
   console.log("Mongoose is disconnected");
 });
+
+app.use(cors());
 
 app.use(express.json());
 
