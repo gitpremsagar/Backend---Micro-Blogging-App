@@ -29,6 +29,8 @@ app.get("*", (req, res) => {
   res.send("You've tried reaching a route that doesn't exist.");
 });
 
-app.listen(8000, () => {
-  console.log("Server is running on http://localhost:8000");
+const port = process.env.PORT || 8000;
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
