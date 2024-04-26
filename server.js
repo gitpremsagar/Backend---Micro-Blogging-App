@@ -25,6 +25,10 @@ app.use(express.json());
 
 app.use("/api/posts", require("./routes/post.routes.js"));
 
+app.get("*", (req, res) => {
+  res.send("You've tried reaching a route that doesn't exist.");
+});
+
 app.listen(8000, () => {
   console.log("Server is running on http://localhost:8000");
 });
